@@ -1,0 +1,119 @@
+{%include 'adminheader.html'%}
+<section id="hero" class="d-flex align-items-center" style="height: 700px;">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+{%if data['up']%}
+<center>
+    
+    <form method="post">
+        <h1>Update Client</h1>
+        <table class="table" style="width:500px;color: white;">
+            <tr>
+                <th>First Name</th>
+                <td><input type="text"  value="{{data['up'][0]['fname']}}" name="fname" required=""></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text"  name="lname" value="{{data['up'][0]['lname']}}" required=""></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text"  name="place" value="{{data['up'][0]['place']}}" required=""></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text"  name="phone" value="{{data['up'][0]['phone']}}" required=""></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email"  name="email" value="{{data['up'][0]['email']}}" required=""></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="update" value="Register"></td>
+            </tr>
+        </table>
+        {%else%}
+<br><br><br>
+         <center>
+    <form method="post">
+        <h1>Manage Client</h1>
+        
+        <table class="table" style="width:500px;color: white;">
+            <tr>
+                <th>First Name</th>
+                <td><input type="text"  name="fname" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text"  name="lname" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text" name="place" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text"  name="phone" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="email"  name="email" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input type="text"  name="uname" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password"  name="passw" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+{%endif%}
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/static/assets/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+<br><br>
+        <center><h1> Clients</h1>
+        <table class="table" style="width:500px;margin-bottom: 2rem; ">
+            <tr>
+                <th>Slno.</th>
+                <th>Client Name</th>
+                <th>Place</th>
+                <th>Phone</th>
+                <th>Email</th>
+                
+            </tr>
+            {% for row in data['client']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['fname']}} {{row['lname']}}</td>
+                   <td>{{row['place']}}</td>
+                   <td>{{row['phone']}}</td>
+                   <td>{{row['email']}}</td>
+                   <td><a href="?action=update&id={{row['client_id']}}" class="btn btn-success" >update</a></td>
+                   <td><a href="?action=delete&id={{row['client_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+
+
+<style>
+    td,th,tr{border:none !important}
+</style>
+{% include 'footer.html'%}

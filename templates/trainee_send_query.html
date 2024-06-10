@@ -1,0 +1,46 @@
+{%include 'traineeheader.html'%}
+
+<center>
+    <form method="post">
+        <h1>Query</h1>
+        <br>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Query</th>
+                <td><input type="text"  name="query" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+</form>
+</center>
+
+
+        <center><h1> Query</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Query</th>
+                <th>Date</th>
+                <th>Reply</th>
+                
+                
+            </tr>
+            {% for row in data['query']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['query']}}</td>
+                   <td>{{row['date']}}</td>
+                   <td>{{row['reply']}}</td>
+                   <td><a href="?action=delete&id={{row['query_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

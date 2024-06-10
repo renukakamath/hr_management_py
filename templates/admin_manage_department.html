@@ -1,0 +1,57 @@
+{%include 'adminheader.html'%}
+{%if data['up']%}
+<center>
+    
+    <form method="post">
+        <h1>Update Department</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Department </th>
+                <td><input type="text"  value="{{data['up'][0]['department']}}" name="department" required=""></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="update" value="Register"></td>
+            </tr>
+        </table>
+        {%else%}
+<br>
+         <center>
+    <form method="post">
+        <h1>Manage Department</h1>
+        <br>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Department</th>
+                <td><input type="text"  name="department" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+{%endif%}
+      
+
+
+        <center><h1> Department</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Department</th>
+                
+                
+            </tr>
+            {% for row in data['dept']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['department']}}</td>
+                   <td><a href="?action=update&id={{row['department_id']}}" class="btn btn-success" >update</a></td>
+                   <td><a href="?action=delete&id={{row['department_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

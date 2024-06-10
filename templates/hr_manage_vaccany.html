@@ -1,0 +1,86 @@
+{%include 'hrheader.html'%}
+{%if data['up']%}
+<center>
+    
+    <form method="post">
+        <h1>Update Vaccancy</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                 <th>Select Department</th>
+                 <td><select name = "dept"  required class="form-control">
+                    {% for row in data['dept'] %}
+                     <option value = "{{ row['department_id'] }}">{{row['department']}}</option>
+                    {% endfor %}
+                 </select>
+            </td></tr> 
+            <tr>
+                <th>Vaccancy </th>
+                <td><input type="text"  value="{{data['up'][0]['vaccancy']}}" name="vaccancy" required=""></td>
+            </tr>
+            <tr>
+                <th>Details </th>
+                <td><input type="text"  value="{{data['up'][0]['details']}}" name="details" required=""></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="update" value="Register"></td>
+            </tr>
+        </table>
+        {%else%}
+<br>
+         <center>
+    <form method="post">
+        <h1>Manage Vaccancy</h1>
+        <br>
+        <table class="table" style="width:500px;">
+            <tr>
+                 <th>Select Department</th>
+                 <td><select name = "dept" required class="form-control">
+                    <option value = "">Select</option>
+                    {% for row in data['dept'] %}
+                     <option value = "{{ row['department_id'] }}">{{row['department']}}</option>
+                    {% endfor %}
+                 </select>
+            </td></tr> 
+            <tr>
+                <th>Vaccancy</th>
+                <td><input type="text"  name="vaccancy" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>Details </th>
+                <td><input type="text"  name="details" required=""></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+{%endif%}
+      
+
+        <center>
+            <h1> Vaccancy</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Department</th>
+                <th>Vaccancy</th>
+                <th>Details</th>
+                
+                
+            </tr>
+            {% for row in data['vaccancy']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['department']}}</td>
+                   <td>{{row['vaccancy']}}</td>
+                   <td>{{row['details']}}</td>
+                   <td><a href="?action=update&id={{row['vaccancy_id']}}" class="btn btn-success" >update</a></td>
+                   <td><a href="?action=delete&id={{row['vaccancy_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

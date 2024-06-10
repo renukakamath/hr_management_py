@@ -1,0 +1,24 @@
+{%include 'traineeheader.html'%}
+<center><h1> Notification</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Notification</th>
+                
+                
+            </tr>
+            {% for row in data['noti']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['notification']}}</td>
+                   
+                   
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

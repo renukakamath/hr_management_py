@@ -1,0 +1,55 @@
+{%include 'employeeheader.html'%}
+
+<center>
+    <form method="post" enctype="multipart/form-data">
+        <h1>Send Materials</h1>
+        <br>
+        <table class="table" style="width:500px;">
+            <tr>
+                 <th>Select Trainee</th>
+                 <td><select name = "trainee" required class="form-control">
+                    <option value = "">Select</option>
+                    {% for row in data['tr'] %}
+                     <option value = "{{ row['trainee_id'] }}">{{row['fname']}} {{row['lname']}}</option>
+                    {% endfor %}
+                 </select>
+            </td></tr> 
+            <tr>
+                <th>Materials</th>
+                <td><input type="file"  name="material" required="" class="form-control"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+</form>
+</center>
+
+
+        <center><h1> Send Materials</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Trainee</th>
+                <th>Material</th>
+                <th>Date</th>
+                
+                
+            </tr>
+            {% for row in data['mat']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['fname']}} {{row['lname']}}</td>
+                   <td><img src="/{{row['material']}}" width="100" height="100"></td>
+                   <td>{{row['date']}}</td>
+                   
+                   <td><a href="?action=delete&id={{row['material_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

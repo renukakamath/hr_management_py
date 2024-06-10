@@ -1,0 +1,63 @@
+{%include 'hrheader.html'%}
+<center>
+    <form method="post">
+        <h1>Trainee Appraisal</h1>
+        <br>
+        <table class="table" style="width:500px;">
+            <tr>
+                 <th>Select Trainee</th>
+                 <td><select name = "trainee" required class="form-control">
+                    <option value = "">Select</option>
+                    {% for row in data['tr'] %}
+                     <option value = "{{ row['trainee_id'] }}">{{row['fname']}} {{row['lname']}}</option>
+                    {% endfor %}
+                 </select>
+            </td></tr> 
+            <tr>
+                 <th>Select Employee</th>
+                 <td><select name = "employee" required class="form-control">
+                    <option value = "">Select</option>
+                    {% for row in data['emp'] %}
+                     <option value = "{{ row['employee_id'] }}">{{row['fname']}} {{row['lname']}}</option>
+                    {% endfor %}
+                 </select>
+            </td></tr> 
+            <tr>
+                <th>Details </th>
+                <td><input type="text"  name="details" required=""></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit"></td>
+            </tr>
+        </table>
+
+
+
+     <center>
+    <h1> Trainee Appraisal</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Trainee</th>
+                <th>Employee</th>
+                <th>Details</th>
+                
+                
+                
+            </tr>
+            {% for row in data['app']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['fname']}} {{row['lname']}}</td>
+                    <td>{{row['fname']}} {{row['lname']}}</td>
+                    <td>{{row['details']}}</td>
+                    <td><a href="?action=delete&id={{row['appreciate_id']}}">delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

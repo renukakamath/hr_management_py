@@ -1,0 +1,40 @@
+{%include 'publicheader.html'%}
+
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <form method="post">
+	<center>
+		<h1>LOGIN</h1>
+		<table class="table" style="width:500px;color: white;">
+			<tr>
+				<th>Username</th>
+				<td><input type="text" placeholder="enter username" class="form-control" required=""  name="uname"></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+				<td><input type="password" placeholder="enter password" class="form-control" required="" name="pword"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" value="Login" class="btn btn-danger btn-lg" name="submit"></td>
+			</tr>
+		</table>
+	</center>
+</form>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="/static/assets/img/why-us.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+<style>
+	td,th,tr{border:none !important}
+</style>
+
+{%include 'footer.html'%}

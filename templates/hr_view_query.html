@@ -1,0 +1,33 @@
+{%include 'hrheader.html'%}
+<center>
+	<h1> Query</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Queries</th>
+                <th>Date</th>
+                <th>Replay</th>
+                
+                
+            </tr>
+            {% for row in data['noti']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['queries']}}</td>
+                   <td>{{row['date']}}</td>
+                   {%if row in data['pending']%}
+                   <td><a href="hr_send_replay?id={{row['query_id']}}">send replay</a></td>
+                   {%else%}
+                   <td>{{row['replay']}}</td>
+                   {%endif%}
+                   
+                   
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+  
+</center>
+{% include 'footer.html'%}

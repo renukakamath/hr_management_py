@@ -1,0 +1,28 @@
+{%include 'hrheader.html'%}
+ <center>
+    <h1> Feedbacks</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Client Name</th>
+                <th>Feedback</th>
+                <th>Date
+                
+                
+                
+            </tr>
+            {% for row in data['feed']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['fname']}} {{row['lname']}}</td>
+                   <td>{{row['feedback']}}</td>
+                   <td>{{row['date']}}</td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

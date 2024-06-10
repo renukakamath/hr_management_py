@@ -1,0 +1,41 @@
+{%include 'traineeheader.html'%}
+<center>
+	<form method="post">
+	<h1> Daily Report</h1>
+	<table>
+		<tr>
+			<th>Report</th>
+			<td><input type="text" name="report"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="submit" value="send"></td>
+		</tr>
+	</table>
+	</form>
+</center>
+
+
+<center><h1> Daily Report</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Report</th>
+                
+                
+            </tr>
+            {% for row in data['report']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['report']}}</td>
+                   
+                   <td><a href="?action=delete&id={{row['report_id'] }}" class="btn btn-danger" >delete</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+
+{%include 'footer.html'%}

@@ -1,0 +1,28 @@
+{%include 'traineeheader.html'%}
+
+<center><h1> Send Materials</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Material</th>
+                <th>Date</th>
+                
+                
+            </tr>
+            {% for row in data['material']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                  
+                   <td><img src="/{{row['material']}}" width="100" height="100"></td>
+                   <td>{{row['date']}}</td>
+                   
+                   <td><a href="/{{row['material']}}" download="" class="btn btn-danger" >download</a></td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    
+</center>
+{% include 'footer.html'%}

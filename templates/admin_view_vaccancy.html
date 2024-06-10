@@ -1,0 +1,27 @@
+{%include 'adminheader.html'%}
+ <center>
+ 	<h1> Vaccancy</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Department</th>
+                <th>Details</th>
+                <th>Date</th>
+                
+                
+            </tr>
+            {% for row in data['vaccancy']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['department']}}</td>
+                   <td>{{row['details']}}</td>
+                   <td>{{row['date']}}</td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

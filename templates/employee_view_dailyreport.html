@@ -1,0 +1,28 @@
+{%include 'employeeheader.html'%}
+<center>
+	 <center><h1> Daily Reports</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Trainee Name</th>
+                <th>Report</th>
+               
+                
+            </tr>
+            {% for row in data['tr']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['fname']}} {{row['lname']}}</td>
+                   <td>{{row['report']}}</td>
+                   
+                  <!--  <td><a href="?action=update&id={{row['department_id']}}" class="btn btn-success" >update</a></td>
+                   <td><a href="?action=delete&id={{row['department_id'] }}" class="btn btn-danger" >delete</a></td> -->
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}

@@ -1,0 +1,24 @@
+{%include 'adminheader.html'%}
+ <center>
+    <h1> Promotion Request</h1>
+        <table class="table" style="width:500px;">
+            <tr>
+                <th>Slno.</th>
+                <th>Promote</th>
+                
+                
+                
+            </tr>
+            {% for row in data['promo']%}
+                <tr>
+                   <td>{{loop.index}}</td>
+                   <td>{{row['promote']}}</td>
+                   
+           
+                </tr>
+                {%endfor%}
+
+        </table>
+    </form>
+</center>
+{% include 'footer.html'%}
